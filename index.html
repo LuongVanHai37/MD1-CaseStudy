@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /*bàn chơi*/
+        #playGround {
+            border: 1px solid blue;
+            width: 30vw;
+            height: 15vw;
+            border-radius: 5vw;
+            margin-left: 50px;
+            margin-right: 50px;
+            margin-top: 0vw;
+        }
+
+        /*số tiền cược*/
+        .amountMoney {
+            display: flex;
+            justify-content: center;
+        }
+
+        .gamble {
+            display: flex;
+            justify-content: center;
+            margin-top: 10vw;
+        }
+
+        /*chọn cửa*/
+        .type {
+            border: 1px solid black;
+            width: 10vw;
+            height: 3vw;
+            padding: 0.3vw 0vw 0.3vw 0vw;
+            text-align: center;
+            border-radius: 3vw;
+            font-size: 2vw;
+            margin-top: 0px;
+            background-color: greenyellow;
+        }
+
+        /*mức cược*/
+        .setValue {
+            border: 1px solid black;
+            width: 5vw;
+            height: 2vw;
+            text-align: center;
+            font-size: 1.5vw;
+            border-radius: 10px;
+            margin: 2vw 1vw 1vw 1vw;
+            padding-top: 0.1vw;
+        }
+
+        /*số tiền đặt của người chơi*/
+        .betAmount {
+            border: 1px solid black;
+            width: 6vw;
+            height: 2vw;
+            padding-top: 4px;
+            text-align: center;
+            border-radius: 1vw;
+            font-size: 1vw;
+            margin: 0.5vw 2vw 2vw 2vw;
+            background-color: rosybrown;
+        }
+
+        /*số tiền hiện có của người chơi*/
+        .currentAmount {
+            border: 1px solid black;
+            width: 6vw;
+            height: 2vw;
+            padding-top: 4px;
+            text-align: center;
+            border-radius: 1vw;
+            font-size: 1vw;
+            margin: 2vw 2vw 0.5vw 2vw;
+            background-color: yellow;
+        }
+
+        .placeBet {
+            display: flex;
+            justify-content: center;
+            height: 2vw;
+        }
+
+        .select {
+            border: 1px solid black;
+            width: 10vw;
+            height: 3vw;
+            text-align: center;
+            font-size: 1.5vw;
+            border-radius: 2vw;
+            margin: 2vw 1vw 1vw 1vw;
+            padding-top: 0.7vw;
+        }
+    </style>
+</head>
+<body>
+<div class="gamble">
+    <div class="block">
+        <div class="currentAmount" id="bets">Tổng Tiền</div>
+        <div class="type">TÀI</div>
+        <div class="betAmount">Đặt cược</div>
+    </div>
+
+    <div id="playGround"></div>
+
+    <div class="block">
+        <div class="currentAmount">Tổng Tiền</div>
+        <div class="type">XỈU</div>
+        <div class="betAmount">Đặt cược</div>
+    </div>
+</div>
+<div class="amountMoney">
+    <div class="setValue">100K</div>
+    <div class="setValue">500K</div>
+    <div class="setValue">1M</div>
+    <div class="setValue">2M</div>
+    <div class="setValue">5M</div>
+</div>
+<div class="placeBet">
+    <div class="select" id="all">ALL IN</div>
+    <div class="select" id="setBet">ĐẶT CƯỢC</div>
+    <div class="select" id="cancel">HỦY</div>
+</div>
+<script src="player.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
