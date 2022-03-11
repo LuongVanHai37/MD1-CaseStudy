@@ -2,6 +2,7 @@ class Player {
     constructor(name, money) {
         this.name = name;
         this.money = money;
+        this.bet = 0 ;
     }
 
     setName(name) {
@@ -23,10 +24,15 @@ class Player {
     getMoney() {
         return this.money;
     }
+    //check điều kiện đặt cược nếu số tiền của người chơi đủ so vs mức cược cho phép đặt , k đủ yêu cầu người chơi nạp tiền vào !
 
     addBet(bet) {
-        if (typeof bet == 'number') {
+        if (this.money >= bet) {
             this.bet += bet;
+            this.money -= bet;
+            return true;
+        } else {
+            return false;
         }
     }
 

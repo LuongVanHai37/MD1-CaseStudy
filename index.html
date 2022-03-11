@@ -65,7 +65,7 @@
             text-align: center;
             border-radius: 1vw;
             font-size: 1vw;
-            margin: 0.5vw 2vw 2vw 2vw;
+            margin: 0.8vw 2vw 2vw 2vw;
             background-color: rosybrown;
         }
 
@@ -98,22 +98,34 @@
             margin: 2vw 1vw 1vw 1vw;
             padding-top: 0.7vw;
         }
+        #all {
+            background-color: #f55bd1;
+            color: white;
+        }
+        #setBet {
+            background-color: #f5ef89;
+            color: white;
+        }
+        #cancel {
+            background-color: #f20713;
+            color: white;
+        }
     </style>
 </head>
 <body>
 <div class="gamble">
     <div class="block">
-        <div class="currentAmount" id="bets">Tổng Tiền</div>
+        <div class="currentAmount" id="totalTalent"></div>
         <div class="type">TÀI</div>
-        <div class="betAmount">Đặt cược</div>
+        <div class="betAmount" id="talent"></div>
     </div>
 
     <div id="playGround"></div>
 
     <div class="block">
-        <div class="currentAmount">Tổng Tiền</div>
+        <div class="currentAmount" id="totalFaint"></div>
         <div class="type">XỈU</div>
-        <div class="betAmount">Đặt cược</div>
+        <div class="betAmount" id="faint"></div>
     </div>
 </div>
 <div class="amountMoney">
