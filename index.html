@@ -10,6 +10,8 @@
 
         /*bàn chơi*/
         #playGround {
+            display: flex;
+            justify-content: center;
             border: 1px solid blue;
             width: 30vw;
             height: 15vw;
@@ -28,7 +30,7 @@
         .gamble {
             display: flex;
             justify-content: center;
-            margin-top: 10vw;
+            margin-top: 2vw;
         }
 
         /*chọn cửa*/
@@ -54,6 +56,10 @@
             border-radius: 10px;
             margin: 2vw 1vw 1vw 1vw;
             padding-top: 0.1vw;
+        }
+        .setValue:hover {
+            background-color: #a9e7ef;
+            cursor: pointer;
         }
 
         /*số tiền đặt của người chơi*/
@@ -102,25 +108,91 @@
             background-color: #f55bd1;
             color: white;
         }
+        #all:hover{
+            background-color: #e319b4;
+            cursor: pointer;
+        }
         #setBet {
-            background-color: #f5ef89;
+            background-color: #deda9e;
             color: white;
+        }
+        #setBet:hover{
+            background-color: #f6f086;
+            cursor: pointer;
         }
         #cancel {
-            background-color: #f20713;
+            background-color: #ea0e1d;
             color: white;
         }
+        #cancel:hover{
+            background-color: #a23039;
+            cursor: pointer;
+        }
+
+        .dice {
+            display: block;
+            width: 7vw;
+            height: 7vw;
+            margin-top: 4vw;
+            margin-left: 0.5vw;
+        }
+        #play {
+            border: 1px solid black ;
+            border-radius: 2vw;
+            width: 10vw;
+            height: 3vw;
+            margin-left: 44.5vw;
+            font-size: 1.5vw;
+            text-align: center;
+            padding-top: 0.7vw;
+            background-color: aqua;
+        }
+        #play:hover {
+            background-color: #439393;
+            cursor: pointer;
+        }
+        #result {
+            border: 1px solid black;
+            border-radius: 2vw;
+            text-align: center;
+            font-size: 2vw;
+            width: 10vw;
+            height: 3.5vw;
+            padding-top: 0.4vw;
+            margin: 2vw 45vw 0vw 45vw;
+            background-color: #0a9839;
+            color: white;
+        }
+        #totalMoneyPlayer{
+            border: 1px solid black;
+            border-radius: 2vw;
+            text-align: center;
+            font-size: 2vw;
+            width: 15vw;
+            height: 3vw;
+            margin: 2vw 42.5vw 0vw 42.5vw;
+            color: #125dcb;
+            padding-top: 0.1vw;
+        }
+
     </style>
 </head>
 <body>
+<div id="result">KẾT QUẢ</div>
+
 <div class="gamble">
+
     <div class="block">
         <div class="currentAmount" id="totalTalent"></div>
         <div class="type">TÀI</div>
         <div class="betAmount" id="talent"></div>
-    </div>
 
-    <div id="playGround"></div>
+    </div>
+    <div id="playGround">
+        <img src="image/1.png" alt="" class="dice">
+        <img src="image/1.png" alt="" class="dice">
+        <img src="image/1.png" alt="" class="dice">
+    </div>
 
     <div class="block">
         <div class="currentAmount" id="totalFaint"></div>
@@ -128,6 +200,7 @@
         <div class="betAmount" id="faint"></div>
     </div>
 </div>
+<div id="totalMoneyPlayer"></div>
 <div class="amountMoney">
     <div class="setValue">100K</div>
     <div class="setValue">500K</div>
@@ -135,8 +208,9 @@
     <div class="setValue">2M</div>
     <div class="setValue">5M</div>
 </div>
+<div id="play">QUAY</div>
 <div class="placeBet">
-    <div class="select" id="all">ALL IN</div>
+    <div class="select" id="all">TẤT TAY</div>
     <div class="select" id="setBet">ĐẶT CƯỢC</div>
     <div class="select" id="cancel">HỦY</div>
 </div>

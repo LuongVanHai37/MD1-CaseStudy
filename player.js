@@ -3,6 +3,7 @@ class Player {
         this.name = name;
         this.money = money;
         this.bet = 0 ;
+        this.type = '';
     }
 
     setName(name) {

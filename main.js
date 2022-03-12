@@ -1,4 +1,5 @@
 let players = new Player('Hải', 2000000)
+showTotalMoneyPlayer();
 let money = document.getElementsByClassName('setValue');
 for (let i = 0; i < money.length; i++) {
     money[i].addEventListener('click', function () {
@@ -22,7 +23,7 @@ function checkString(money = '') {
 
 // chuyển số thành chuỗi
 
-function checkNumber(money) {
+function convertNumberToStr(money) {
     let changeValue;
     if ((money / 1000000) >= 1) {
         changeValue = (money / 1000000) + 'M';
@@ -61,18 +62,25 @@ let numberInput = 0;
 let moneyBetList = document.getElementsByClassName('setValue');
 for (let i = 0; i < moneyBetList.length; i++) {
     moneyBetList[i].addEventListener('click', function () {
-        numberInput = checkString(this.innerHTML)
-        if (players.type == 'TÀI') {
-            document.getElementById('talent').innerHTML = this.innerHTML;
-        } else {
-            document.getElementById('faint').innerHTML = this.innerHTML;
+        if (players.money <= 0) {
+            alert('Bạn không đủ số dư')
+            return;
         }
+        showMoneyBet(this.innerHTML)
     })
 }
 document.getElementById('setBet').addEventListener('click', function () {
+    if (players.money <= 0) {
+        alert('Bạn không đủ số dư')
+        return;
+    }
     players.bet += numberInput;
+    players.money -= numberInput;
     numberInput = 0;
-    let str = checkNumber(players.bet)
+    let str = convertNumberToStr(players.bet)
+    if (players.bet == 0) {
+        return;
+    }
     if (players.type == 'TÀI') {
         document.getElementById('totalTalent').innerHTML = str;
         document.getElementById('talent').innerHTML = '';
@@ -80,8 +88,90 @@ document.getElementById('setBet').addEventListener('click', function () {
         document.getElementById('totalFaint').innerHTML = str;
         document.getElementById('faint').innerHTML = '';
     }
+    showTotalMoneyPlayer()
+})
+document.getElementById('play').addEventListener('click', lacXucXac)
+let count = 0;
+
+function lacXucXac() {
+    document.getElementById('result').innerHTML = '';
+    let diceValue = [];
+    diceValue[0] = Math.floor(Math.random() * 6) + 1;
+    diceValue[1] = Math.floor(Math.random() * 6) + 1;
+    diceValue[2] = Math.floor(Math.random() * 6) + 1;
+    let images = document.getElementsByClassName('dice');
+    for (let i = 0; i < images.length; i++) {
+        images[i].src = 'image/' + diceValue[i] + '.png';
+
+    }
+    if (count < 100) {
+        setTimeout(lacXucXac, 25)
+        count++
+    } else {
+        let sum = 0;
+        for (let i = 0; i < diceValue.length; i++) {
+            sum += diceValue[i];
+        }
+        if (sum > 10) {
+            if (players.type == 'TÀI') {
+                players.money += players.bet * 2;
+            }
+            document.getElementById('result').innerHTML = 'TÀI';
+        } else {
+            if (players.type == 'XỈU') {
+                players.money += players.bet * 2;
+            }
+            document.getElementById('result').innerHTML = 'XỈU';
+        }
+        players.bet = 0;
+        players.type = '';
+
+        count = 0;
+
+        showTotalMoneyPlayer();
+        resetValue();
+    }
+
+}
+
+function showTotalMoneyPlayer() {
+
+    let totalMoneyStr = convertNumberToStr(players.money);
+    document.getElementById('totalMoneyPlayer').innerHTML = totalMoneyStr;
+}
+
+function resetValue() {
+    let currentAmount = document.getElementsByClassName('currentAmount')
+    for (let i = 0; i < currentAmount.length; i++) {
+        currentAmount[i].innerHTML = '';
+    }
+    let styleType = document.getElementsByClassName('type')
+    for (let i = 0; i < styleType.length; i++) {
+        styleType[i].style.backgroundColor = 'greenyellow'
+    }
+}
+
+document.getElementById('all').addEventListener('click', function () {
+    if (players.type != 'TÀI' && players.type != 'XỈU') {
+        alert('Bạn chưa chọn loại cược')
+        return;
+    }
+    showMoneyBet(convertNumberToStr(players.money))
+    numberInput = players.money;
 
 })
+
+function showMoneyBet(a) {
+    if (players.type == 'TÀI') {
+        document.getElementById('talent').innerHTML = a;
+    } else if (players.type == 'XỈU') {
+        document.getElementById('faint').innerHTML = a;
+    } else {
+        return;
+    }
+    numberInput = checkString(a)
+}
+
 
 
 
