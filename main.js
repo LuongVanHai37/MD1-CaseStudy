@@ -1,4 +1,4 @@
-let players = new Player('Hải', 2000000)
+let players = new Player('Hải', 20000000)
 showTotalMoneyPlayer();
 let money = document.getElementsByClassName('setValue');
 for (let i = 0; i < money.length; i++) {
@@ -34,6 +34,7 @@ function convertNumberToStr(money) {
 
 }
 
+//nếu người chơi đã chọn cửa và đặt cược thì không cho chọn cửa nữa .
 let typesBet = document.getElementsByClassName('type');
 for (let i = 0; i < typesBet.length; i++) {
     typesBet[i].addEventListener('click', function () {
@@ -56,7 +57,7 @@ for (let i = 0; i < typesBet.length; i++) {
         this.style.backgroundColor = 'blue';
     })
 }
-// lấy ra số tiền cược của người chơi và đổi về dạng số
+// lấy ra số tiền cược của người chơi và đổi về dạng số .Nếu số tiền của người chơi lớn hơn hoặc bằng số tiền đăt thì cho phép đặt . Nếu k thỏa mãn thì đưa ra cảnh báo
 
 let numberInput = 0;
 let moneyBetList = document.getElementsByClassName('setValue');
@@ -92,6 +93,8 @@ document.getElementById('setBet').addEventListener('click', function () {
 })
 document.getElementById('play').addEventListener('click', lacXucXac)
 let count = 0;
+
+//lấy ra random 3 số bất kì tương ứng hiển thị các ảnh bằng số random. Nếu tổng 3 số lớn hơn 10 .kết quả trả về TÀI.Nếu bé hơn 10 kết quả trả về XỈU
 
 function lacXucXac() {
     document.getElementById('result').innerHTML = '';
@@ -171,6 +174,16 @@ function showMoneyBet(a) {
     }
     numberInput = checkString(a)
 }
+
+document.getElementById('cancel').addEventListener('click', function () {
+    players.money += players.bet
+    players.bet = 0;
+    resetValue();
+    showTotalMoneyPlayer()
+    document.getElementsByClassName('amountMoney').innerHTML = '';
+})
+
+
 
 
 
