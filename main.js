@@ -152,6 +152,10 @@ function resetValue() {
     for (let i = 0; i < styleType.length; i++) {
         styleType[i].style.backgroundColor = 'greenyellow'
     }
+    let cancels = document.getElementsByClassName('betAmount')
+    for (let i = 0; i < cancels.length; i++) {
+        cancels[i].innerHTML = '';
+    }
 }
 
 document.getElementById('all').addEventListener('click', function () {
@@ -180,7 +184,6 @@ document.getElementById('cancel').addEventListener('click', function () {
     players.bet = 0;
     resetValue();
     showTotalMoneyPlayer()
-    document.getElementsByClassName('amountMoney').innerHTML = '';
 })
 
 
