@@ -1,18 +1,21 @@
+let listMusic = ['image/music.mp3', 'image/music2.mp3', 'image/music3.mp3'] //
+let music = document.getElementById('music')
+document.getElementById('playMusic').onclick = function () {
+    music.play()
+}
+music.onended = function () {
+    let x = Math.floor(Math.random() * 3)
+    music.src = listMusic[x]
+    music.play()
+}
 let players = new Player('Hải', 20000000)
 showTotalMoneyPlayer();
-let money = document.getElementsByClassName('setValue');
-for (let i = 0; i < money.length; i++) {
-    money[i].addEventListener('click', function () {
-        let number = checkString(money[i].innerHTML);
-    })
-}
+// chuyển chuỗi K và M thành số để tính toán
 
-// chuyển chuỗi thành số
-
-function checkString(money = '') {
+function convertStrToNumber(money = '') {
     let result = '';
 
-    let str = money.charAt(money.length - 1)
+    let str = money.charAt(money.length - 1) // lấy kí tự cuối cùng là K và M trong chuỗi bằng độ dài của chuỗi - 1.
     if (str == 'K') {
         result = money.replace('K', '000')
     } else {
@@ -21,7 +24,7 @@ function checkString(money = '') {
     return parseInt(result);
 }
 
-// chuyển số thành chuỗi
+// chuyển số  đã đổi ngược lại thành chuỗi K ,M để in ra màn hình
 
 function convertNumberToStr(money) {
     let changeValue;
@@ -35,7 +38,7 @@ function convertNumberToStr(money) {
 }
 
 //nếu người chơi đã chọn cửa và đặt cược thì không cho chọn cửa nữa .
-let typesBet = document.getElementsByClassName('type');
+let typesBet = document.getElementsByClassName('type'); // loại cược
 for (let i = 0; i < typesBet.length; i++) {
     typesBet[i].addEventListener('click', function () {
         let totalTalent = document.getElementById('totalTalent').innerHTML;
@@ -54,7 +57,7 @@ for (let i = 0; i < typesBet.length; i++) {
         for (let j = 0; j < typesBet.length; j++) {
             typesBet[j].style.backgroundColor = 'greenyellow';
         }
-        this.style.backgroundColor = 'blue';
+        this.style.backgroundColor = 'blue'; // khi chọn loại cược thì đổi sang màu khác
     })
 }
 // lấy ra số tiền cược của người chơi và đổi về dạng số .Nếu số tiền của người chơi lớn hơn hoặc bằng số tiền đăt thì cho phép đặt . Nếu k thỏa mãn thì đưa ra cảnh báo
@@ -176,14 +179,17 @@ function showMoneyBet(a) {
     } else {
         return;
     }
-    numberInput = checkString(a)
+    numberInput = convertStrToNumber(a)
 }
 
+// sự kiện hủy cược
 document.getElementById('cancel').addEventListener('click', function () {
     players.money += players.bet
     players.bet = 0;
+    players.type = '';
     resetValue();
     showTotalMoneyPlayer()
+
 })
 
 
