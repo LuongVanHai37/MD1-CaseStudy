@@ -1,4 +1,4 @@
-let listMusic = ['image/music.mp3', 'image/music2.mp3', 'image/music3.mp3'] //
+let listMusic = ['image/music.mp3', 'image/music2.mp3', 'image/music3.mp3'];
 let music = document.getElementById('music')
 document.getElementById('playMusic').onclick = function () {
     music.play()
@@ -57,7 +57,7 @@ for (let i = 0; i < typesBet.length; i++) {
         for (let j = 0; j < typesBet.length; j++) {
             typesBet[j].style.backgroundColor = 'greenyellow';
         }
-        this.style.backgroundColor = 'blue'; // khi chọn loại cược thì đổi sang màu khác
+        this.style.backgroundColor = 'red'; // khi chọn loại cược thì đổi sang màu khác
     })
 }
 // lấy ra số tiền cược của người chơi và đổi về dạng số .Nếu số tiền của người chơi lớn hơn hoặc bằng số tiền đăt thì cho phép đặt . Nếu k thỏa mãn thì đưa ra cảnh báo
@@ -78,8 +78,8 @@ document.getElementById('setBet').addEventListener('click', function () {
         alert('Bạn không đủ số dư')
         return;
     }
-    players.bet += numberInput;
-    players.money -= numberInput;
+    players.bet += numberInput; // khi nhấn các mức cược thì cộng tiền vào ô tổng tiền
+    players.money -= numberInput; // trừ tiền tương ứng của người chơi
     numberInput = 0;
     let str = convertNumberToStr(players.bet)
     if (players.bet == 0) {
@@ -140,32 +140,36 @@ function lacXucXac() {
 
 }
 
+// hàm hiển thị tổng tiền của người chơi
 function showTotalMoneyPlayer() {
 
     let totalMoneyStr = convertNumberToStr(players.money);
     document.getElementById('totalMoneyPlayer').innerHTML = totalMoneyStr;
 }
 
+// hàm reset các giá trị loại cược tiền cược về ban trước khi chọn
 function resetValue() {
-    let currentAmount = document.getElementsByClassName('currentAmount')
+    let currentAmount = document.getElementsByClassName('currentAmount') // khi hủy thì chuyển các giá trị tiền cược về ''
     for (let i = 0; i < currentAmount.length; i++) {
         currentAmount[i].innerHTML = '';
     }
-    let styleType = document.getElementsByClassName('type')
+    let styleType = document.getElementsByClassName('type') // chuyển màu về mặc định khi chưa cược
     for (let i = 0; i < styleType.length; i++) {
         styleType[i].style.backgroundColor = 'greenyellow'
     }
-    let cancels = document.getElementsByClassName('betAmount')
+    let cancels = document.getElementsByClassName('betAmount') // số tiền cược hiển thị về ''
     for (let i = 0; i < cancels.length; i++) {
         cancels[i].innerHTML = '';
     }
 }
 
+// nếu click vào nút all in thì cộng toàn bộ số tiền hiện có của người chơi vào số tiền cược .chưa chọn loại cược thì đưa ra cảnh báo
 document.getElementById('all').addEventListener('click', function () {
     if (players.type != 'TÀI' && players.type != 'XỈU') {
         alert('Bạn chưa chọn loại cược')
         return;
     }
+
     showMoneyBet(convertNumberToStr(players.money))
     numberInput = players.money;
 

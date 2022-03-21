@@ -7,32 +7,29 @@
 </head>
 
 <body>
+
 <button id="playMusic">Phát nhạc</button>
 <audio src="image/music.mp3" id="music">
 </audio>
 <div id="result">KẾT QUẢ</div>
-
+<div id="totalMoneyPlayer"></div>
 <div class="gamble">
-
-    <div class="block">
-        <div class="currentAmount" id="totalTalent"></div>
-        <div class="type">TÀI</div>
-        <div class="betAmount" id="talent"></div>
-
-    </div>
     <div id="playGround">
+        <div class="block">
+            <div class="currentAmount" id="totalTalent"></div>
+            <div class="type">TÀI</div>
+            <div class="betAmount" id="talent"></div>
+        </div>
         <img src="image/1.png" alt="" class="dice">
         <img src="image/1.png" alt="" class="dice">
         <img src="image/1.png" alt="" class="dice">
-    </div>
-
-    <div class="block">
-        <div class="currentAmount" id="totalFaint"></div>
-        <div class="type">XỈU</div>
-        <div class="betAmount" id="faint"></div>
+        <div class="block">
+            <div class="currentAmount" id="totalFaint"></div>
+            <div class="type">XỈU</div>
+            <div class="betAmount" id="faint"></div>
+        </div>
     </div>
 </div>
-<div id="totalMoneyPlayer"></div>
 <div class="amountMoney">
     <div class="setValue">100K</div>
     <div class="setValue">500K</div>
@@ -40,10 +37,10 @@
     <div class="setValue">2M</div>
     <div class="setValue">5M</div>
 </div>
-<div id="play">QUAY</div>
 <div class="placeBet">
     <div class="select" id="all">ALL IN</div>
     <div class="select" id="setBet">ĐẶT CƯỢC</div>
+    <div id="play">QUAY</div>
     <div class="select" id="cancel">HỦY</div>
 </div>
 <script src="player.js"></script>
