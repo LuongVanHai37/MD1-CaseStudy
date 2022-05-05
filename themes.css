@@ -26,10 +26,10 @@
 
 /*chọn cửa*/
 .type {
-    border: 1px solid white;
+    border: 1px solid black;
     width: 10vw;
     height: 3vw;
-    padding: 0.3vw 0vw 0.3vw 0vw;
+    padding: 0vw 0vw 0.3vw 0vw;
     text-align: center;
     border-radius: 3vw;
     font-size: 2vw;
@@ -40,14 +40,14 @@
 
 /*mức cược*/
 .setValue {
-    border: 1px solid white;
-    width: 5vw;
-    height: 2vw;
+    border: 1px solid black;
+    width: 6vw;
+    height: 2.5vw;
     text-align: center;
     font-size: 1.5vw;
-    border-radius: 10px;
-    margin: 2vw 1vw 1vw 1vw;
-    padding-top: 0.1vw;
+    border-radius: 1vw;
+    margin: 1vw 1vw 1vw 1vw;
+    background: #29a1a1;
 }
 
 .setValue:hover {
@@ -57,10 +57,9 @@
 
 /*số tiền đặt của người chơi*/
 .betAmount {
-    border: 1px solid white;
+    border: 1px solid black;
     width: 6vw;
     height: 2vw;
-    padding-top: 4px;
     text-align: center;
     border-radius: 1vw;
     font-size: 1.5vw;
@@ -70,14 +69,14 @@
 
 /*số tiền hiện có của người chơi*/
 .currentAmount {
-    border: 1px solid white;
+    border: 1px solid black;
     width: 6vw;
     height: 2vw;
-    padding-top: 4px;
     text-align: center;
+    line-height: 1.5vw;
     border-radius: 1vw;
     font-size: 1.5vw;
-    margin: 2vw 2vw 0.5vw 2vw;
+    margin: 0vw 2vw 0.5vw 2vw;
     background-color: yellow;
 }
 
@@ -88,29 +87,34 @@
 }
 
 .select {
-    border: 1px solid white;
+    border: 1px solid black;
     width: 10vw;
     height: 3vw;
     text-align: center;
     font-size: 1.5vw;
     border-radius: 2vw;
     margin: 1vw 1vw 1vw 1vw;
-    padding-top: 0.7vw;
+    padding-top: 0.3vw;
 }
 
 #all {
     background-color: #1b51e0;
     color: white;
+    border: 1px solid black;
+
 }
 
 #all:hover {
     background-color: #367dec;
     cursor: pointer;
+
 }
 
 #setBet {
     background-color: #f3e514;
     color: white;
+    border: 1px solid black;
+
 }
 
 #setBet:hover {
@@ -121,6 +125,8 @@
 #cancel {
     background-color: #ea0e1d;
     color: white;
+    border: 1px solid black;
+
 }
 
 #cancel:hover {
@@ -137,14 +143,14 @@
 }
 
 #play {
-    border: 1px solid white;
+    border: 1px solid black;
     border-radius: 2vw;
     width: 10vw;
     height: 3vw;
     font-size: 1.5vw;
     color: #ffffff;
     text-align: center;
-    padding-top: 0.7vw;
+    padding-top: 0.3vw;
     background-color: aqua;
     margin: 1vw;
 }
@@ -155,13 +161,13 @@
 }
 
 #result {
-    border: 1px solid white;
+    border: 1px solid black;
     border-radius: 2vw;
     text-align: center;
     font-size: 2vw;
     width: 10vw;
     height: 3.5vw;
-    padding-top: 0.4vw;
+    padding-top: 0.2vw;
     margin: 2vw 45vw 0vw 45vw;
     background-color: #0a9839;
     color: white;
@@ -173,21 +179,22 @@
     text-align: center;
     font-size: 2vw;
     width: 15vw;
-    height: 3vw;
+    height: 4vw;
     margin: 1vw 42.5vw 0vw 42.5vw;
     color: #f8f105;
-    padding-top: 0.1vw;
+
 }
 
 .block {
     padding: 0vw 2vw 0vw 2vw;
 }
 
-* {
-    box-sizing: border-box;
-    background-image: url("image/backGround.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-   
+.music {
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    background-image: url("https://freenice.net/wp-content/uploads/2021/10/hinh-nen-vu-tru-khong-gian-dep.jpg");
 
 }
